@@ -1,5 +1,5 @@
 import express from "express";
-import devBundle from "./devBundle";
+//import devBundle from "./devBundle";
 import path from "path";
 import template from "../template";
 import { MongoClient } from "mongodb";
@@ -16,7 +16,7 @@ MongoClient.connect(url, (err, db) => {
     console.log("Connected successfully to mongodb server");
     db.close();
 });
-devBundle.compile(app);
+//devBundle.compile(app);
 app.use("/dist", express.static(path.join(CURRENT_WORKING_DIR, "dist")));
 app.get("/", (req, res) => {
     res.status(200).send(template());
